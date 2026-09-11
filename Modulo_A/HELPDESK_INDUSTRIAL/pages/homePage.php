@@ -108,6 +108,10 @@ try {
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
+<<<<<<< Updated upstream
+=======
+                    <td colspan="10" style="text-align:center;">nenhum chamado encontrado</td>
+>>>>>>> Stashed changes
                     <td colspan="9" style="text-align:center;">Nenhum chamado encontrado.</td>
                 </tr>
             <?php endif; ?>
