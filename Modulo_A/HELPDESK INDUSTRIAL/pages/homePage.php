@@ -36,7 +36,7 @@
 <body>
     <header>
         <h1>Bem-vindo ao Helpdesk Industrial</h1>
-        <button>Formulário</button>
+        <button onclick="window.location.href='formulario.php'">Formulário</button>
     </header>
 </body>
 </html>
