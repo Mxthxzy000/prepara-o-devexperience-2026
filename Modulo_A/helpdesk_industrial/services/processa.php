@@ -6,7 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (strlen($nome) < 3 || strlen($nome) > 100) {
         die("O nome deve ter entre 3 e 100 caracteres.");
     }
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $email_raw = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    if (!filter_var($email_raw, FILTER_VALIDATE_EMAIL)) {
+        die("Email inválido.");
+    }
+    $email = $email_raw;
     if (strlen($email) > 150) {
         die("O email deve ter no máximo 150 caracteres.");
     }
@@ -39,16 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':prioridade', $prioridade);
             $stmt->bindParam(':status', $status);
             if ($stmt->execute()) {
-                echo "Chamado registrado com sucesso!";
-                header("Location: ../pages/homePage.php"); // Redireciona para a página inicial após o registro
+                header("Location: ../pages/homePage.php?success=1");
+                exit;
             } else {
-                echo "Erro ao registrar o chamado.";
+                header("Location: ../pages/homePage.php?error=insert");
+                exit;
             }
         } catch (PDOException $e) {
-            echo "Erro: " . $e->getMessage();
+            header("Location: ../pages/homePage.php?error=db");
+            exit;
         }
     } else {
-        echo "Por favor, preencha todos os campos corretamente.";
+        header("Location: ../pages/homePage.php?error=fields");
+        exit;
     }
 }
 ?>
