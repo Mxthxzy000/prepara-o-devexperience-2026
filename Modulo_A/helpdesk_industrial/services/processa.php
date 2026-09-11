@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($nome && $email && $setor && $titulo && $desc && $prioridade) {
         try {
-            $stmt = $pdo->prepare("INSERT INTO chamados (nome, email, setor, titulo, descricao, prioridade, status) VALUES (:nome, :email, :setor, :titulo, :descricao, :prioridade, :status)");
+            $stmt = $pdo->prepare("INSERT INTO chamados (solicitante, email, setor, titulo, descricao, prioridade, status) VALUES (:nome, :email, :setor, :titulo, :descricao, :prioridade, :status)");
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':setor', $setor);

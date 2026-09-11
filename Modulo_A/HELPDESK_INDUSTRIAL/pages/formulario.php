@@ -1,3 +1,7 @@
+<?php
+require_once '../services/conexao.php';
+require_once '../services/processa.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <title>Formulário de Chamados</title>
 </head>
 <body>
-    <form action="/processadordedadosplaceholder" method="POST">
+    <form action="../services/processa.php" method="POST">
         <label for="nome">Solicitante:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 
