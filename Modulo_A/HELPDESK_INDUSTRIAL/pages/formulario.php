@@ -15,9 +15,17 @@ $form_token = $_SESSION['form_token'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Chamados</title>
+    <link rel="stylesheet" href="../styles/styleGeral.css">
 </head>
 <body>
     <form action="../services/processa.php" method="POST">
+
+<header>
+        <h1>Helpdesk Industrial</h1>
+        <button onclick="window.location.href='homePage.php'" class="btnnav" >Voltar</button>
+    </header>
+
+    <form action="../services/processa.php" class="formulário-container" method="POST">
         <label for="nome">Solicitante:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 

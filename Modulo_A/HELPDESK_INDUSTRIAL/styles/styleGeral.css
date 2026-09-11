@@ -3,27 +3,55 @@ body {
             margin: 0;
             padding: 0;
             background-color: #dddddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100%;
+            
         }
 
         header {
             background-color: #ffffff;
-            color: rgb(50, 50, 50);
+            color: #000678;
             padding: 20px;
             align-items: center;
             justify-content: space-between;
             display: flex;
             border-bottom: #000000 2px solid;
+            margin-bottom: 25px;
         }
 
         button:hover {
-            background-color: #075d1a;
+            background-color: #000678;
+            color: white;
+            transform: scale(1.1);
         }
 
         .btnnav {
-            background-color: #22e318;
+            background-color: #3b5fff;
             color: white;
-            padding: 8px 16px;
-            height: 5%;
+            width: 150px;
+            height: 50px;
+            border-radius: 25px;
+            border: none;
             cursor: pointer;
             font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .formulário-container {
+            display: flex;
+            width: 15%;
+            max-height: 30%;
+            padding: 2% 2%;
+            
+        }
+
+        form {
+            align-self: center;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+            border: #000000 1px solid;
         }
