@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':status', $status);
             if ($stmt->execute()) {
                 echo "Chamado registrado com sucesso!";
+                header("Location: ../pages/homePage.php"); // Redireciona para a página inicial após o registro
             } else {
                 echo "Erro ao registrar o chamado.";
             }
