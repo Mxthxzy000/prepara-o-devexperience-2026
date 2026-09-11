@@ -1,12 +1,3 @@
-<?php
-
-include "conexao.php";
-
-$sql = "SELECT * FROM chamados";
-
-$resultado = $conexao->query($sql);
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
