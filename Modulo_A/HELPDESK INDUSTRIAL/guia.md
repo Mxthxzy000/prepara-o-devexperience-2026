@@ -8,7 +8,7 @@ Ao final da atividade, sua equipe deverá demonstrar domínio de:
 
 Técnologias: HTML, CSS, PHP e MySQL.
 
-Guia Banco de Dados:
+# Guia Banco de Dados:
 Campo            | Informação e regra
 Código           | Identificador único, com PRIMARY KEY e AUTO_INCREMENT.
 Solicitante      | Obrigatório; de 3 a 100 caracteres.
@@ -20,12 +20,13 @@ Prioridade       | Baixa, Média ou Alta.
 Status           | Aberto, Em atendimento ou Finalizado. Novo chamado começa como Aberto.
 Data de abertura | Data e horário registrados automaticamente, sem preenchimento pelo usuário.
 
-MISSÃO 1 - CRIAR O FORMULÁRIO
 
+# Missões:
+
+MISSÃO 1 - CRIAR O FORMULÁRIO
 Crie um formulário com os campos necessários para abrir um chamado. Utilize rótulos claros, campos adequados e listas de seleção para setor e prioridade.
 
 MISSÃO 2 - VALIDAR NO PHP
-
 Receba os dados no servidor, remova espaços desnecessários das extremidades e verifique preenchimento, tamanho e formato. Campos contendo apenas espaços devem ser considerados vazios. Setor, prioridade e status devem aceitar somente as opções previstas, inclusive no processamento PHP. Dados inválidos não podem ser gravados.
 
 MISSÃO 3 - SALVAR E INFORMAR O RESULTADO
@@ -50,7 +51,7 @@ Crie uma busca por título e um filtro por status. As duas condições devem fun
 MISSÃO 9 - APRESENTAR INDICADORES
 Mostre a quantidade total de chamados e as quantidades de chamados Abertos, Em atendimento e Finalizados. Calcule os valores com base nos registros do banco. Os indicadores devem considerar todos os chamados, independentemente dos filtros aplicados à listagem. O painel e a listagem podem ocupar a mesma página. A equipe pode definir a organização das demais telas, mantendo a navegação consistente.
 
-FOCOS:
+# FOCOS:
 
 - Banco e estrutura inicial + Banco e conexão funcionando.
 
@@ -61,3 +62,10 @@ FOCOS:
 - Busca, painel e interface + Filtros, indicadores e usabilidade.
 
 - Testes e entrega + Aplicação verificada e arquivos organizados.
+
+# ENTREGA
+Inclua todos os arquivos PHP, HTML, CSS necessários para executar a aplicação, além dos recursos locais utilizados.
+
+Entregue o arquivo banco.sql com a criação do banco, estrutura da tabela e pelo menos 8 chamados fictícios, distribuídos entre os status e as prioridades.
+
+Inclua um README.txt com nome da equipe, integrantes, configuração da conexão, instruções para importar o banco e executar a aplicação, além de funcionalidades pendentes.
