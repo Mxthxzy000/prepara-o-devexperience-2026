@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chamados` (
-  `codigo` int(10) UNSIGNED NOT NULL,
+  `codigo` PRIMARY KEY AUTO_INCREMENT UNSIGNED NOT NULL,
   `solicitante` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `setor` enum('Produção','Administrativo','Logística','TI') NOT NULL,
