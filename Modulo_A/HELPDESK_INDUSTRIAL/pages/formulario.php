@@ -2,6 +2,13 @@
 require_once '../services/conexao.php';
 require_once '../services/processa.php';
 ?>
+<?php
+session_start();
+if (!isset($_SESSION['form_token'])) {
+    $_SESSION['form_token'] = bin2hex(random_bytes(32));
+}
+$form_token = $_SESSION['form_token'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +48,7 @@ require_once '../services/processa.php';
             <option value='alta'>Alta</option>
         </select><br><br>
 
+        <input type="hidden" name="form_token" value="<?php echo $form_token; ?>">
         <input type="submit" value="Enviar">
     </form>
 </body>

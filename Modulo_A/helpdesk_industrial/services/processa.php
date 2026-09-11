@@ -1,16 +1,23 @@
 <?php 
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once 'conexao.php';
+
+    // Verifica token para evitar reenvio/duplicação
+    if (!isset($_POST['form_token']) || !isset($_SESSION['form_token']) || $_POST['form_token'] !== $_SESSION['form_token']) {
+        die("Formulário inválido ou já enviado.");
+    }
+    // invalida o token para prevenir reutilização
+    unset($_SESSION['form_token']);
 
     $nome  = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     if (strlen($nome) < 3 || strlen($nome) > 100) {
         die("O nome deve ter entre 3 e 100 caracteres.");
     }
-    $email_raw = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    if (!filter_var($email_raw, FILTER_VALIDATE_EMAIL)) {
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    if ($email === false || $email === null) {
         die("Email inválido.");
     }
-    $email = $email_raw;
     if (strlen($email) > 150) {
         die("O email deve ter no máximo 150 caracteres.");
     }
@@ -43,19 +50,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':prioridade', $prioridade);
             $stmt->bindParam(':status', $status);
             if ($stmt->execute()) {
+                // PRG: redireciona após inserir para evitar duplicação no refresh
                 header("Location: ../pages/homePage.php?success=1");
-                exit;
+                exit();
             } else {
+                // redireciona com erro
                 header("Location: ../pages/homePage.php?error=insert");
-                exit;
+                exit();
             }
         } catch (PDOException $e) {
-            header("Location: ../pages/homePage.php?error=db");
-            exit;
+            echo "Erro: " . $e->getMessage();
         }
     } else {
-        header("Location: ../pages/homePage.php?error=fields");
-        exit;
+        echo "Por favor, preencha todos os campos corretamente.";
     }
 }
 ?>
