@@ -74,8 +74,7 @@ if ($codigo) {
                 </div>
 
                 <div style="margin-top: 15px;">
-<a href="editar.php?id=<?= urlencode($chamado['codigo']) ?>">Editar</a> |
-                    <a href="homePage.php">Voltar</a>
+                    <a href="editar.php?id=<?= urlencode($chamado['codigo']) ?>">Editar</a>
                 </div>
             </div>
         <?php endif; ?>
